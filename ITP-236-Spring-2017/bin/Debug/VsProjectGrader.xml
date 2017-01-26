@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ProjectGrader>
+  <Name>ITP-236 OOP Sales Order Project</Name>
+  <Topics>
+    <Topic Name="Part" >
+      <Class>
+      </Class>
+      <Constants>
+        <Test Name="StudentName" DataType="String" Value="1" />
+      </Constants>
+      <Constructors>
+        <Test Name="Default Constructor" Value="3" Method="TestPartDefaultConstructor" />
+        <Test Name="int partId, string name, decimal price" Value="5" Method="TestPartConstructor3" />
+      </Constructors>
+      <Properties>
+        <Test Name="Price" DataType="Decimal" ReadWrite="Both" Value="3"  />
+        <Test Name="PartId" DataType="Int32" ReadWrite="Both" Value="3"  />
+        <Test Name="SalesOrderParts" DataType="List`1" ReadWrite="Both" Generic="SalesOrderPart" Value="5"  Method="TestPartSalesOrderParts"/>
+        <Test Name="UnitsSold" DataType="Int32" ReadWrite="Read"  Value="5"  Method="TestPartUnitsSold"/>
+        <Test Name="AmountSold" DataType="Decimal" ReadWrite="Read"  Value="5"  Method="TestPartAmountSold"/>
+        <Test Name="QuantityOnHand" DataType="Int32" ReadWrite="Both" Value="5"  /> <!--Method="TestQuantityOnHand"-->
+        <Test Name="CurrentValue" DataType="Decimal" ReadWrite="Both" Value="5"  /> <!--Method="TestCurrentValue"--> 
+      </Properties>
+    </Topic>
+      <Topic Name="Shipment">
+          <Class>
+              
+          </Class>
+          <Constructors>
+            <Test Name="Default Constructor" Value="3" Method="TestShipmentDefaultConstructor" />
+            <Test Name="int salesOrderNumber, DateTime shipmentDate" DataType="Customer" Value="5" Method="ShipmentConstructor2">
+                  <Parameters>
+                      <Parameter Name="salesOrderNumber" DataType="Int32" />
+                      <Parameter Name="shipmentDate" DataType="DateTime" />
+                  </Parameters>
+              </Test>
+          </Constructors>
+          <Properties>
+              <Test Name="ShipmentId" DataType="Int32" ReadWrite="Both" Value="3" />
+              <Test Name="SalesOrderNumber" DataType="Int32" ReadWrite="Both" Value="3" />
+            <Test Name="SalesOrder" DataType="SalesOrder" ReadWrite="Both" Value="5" Method="TestShipmentSalesOrder" />
+            <Test Name="ShipmentDate" DataType="DateTime" ReadWrite="Both" Value="3" />
+              <!--<Test Name="ShipmentParts" DataType="List`1" ReadWrite="Read" Generic="ShipmentPart" Value="5" Method="TestShipmentShipmentParts"  />-->
+          </Properties>
+      </Topic>
+      <!--<Topic Name="ShipmentPart" >
+      <Class>
+        <Test Name="IsAbstract" Value="1" Expected="False" />
+      </Class>
+      <Constructors>
+        <Test Name="Default Constructor" Value="3" Method="TestShipmentPartDefaultConstructor" />
+        <Test Name="Constructor with 5 parameters" Value="5"  Method="TestShipmentPartConstructor5" />
+      </Constructors>
+      <Properties>
+          <Test Name="ShipmentPartId" DataType="Int32" ReadWrite="Both" Value="3" />
+          <Test Name="ShipmentId" DataType="Int32" ReadWrite="Both" Value="3" />
+          <Test Name="Shipment" DataType="Shipment" ReadWrite="Both" Value="3" Method="TestShipmentPartShipment" />
+          <Test Name="SalesOrderPart" DataType="SalesOrderPart" ReadWrite="Both" Value="3" Method="TestShipmentPartSoPart" />
+          <Test Name="UnitCost" DataType="Decimal" ReadWrite="Read" Value="3" />
+          <Test Name="ExtendedCost" DataType="Decimal" ReadWrite="Read" Value="3" Method="TestShipmentPartExtendedCost"  />
+          <Test Name="SalesReturns" DataType="List`1" ReadWrite="Both" Generic="SalesReturn" Value="5"  />
+      </Properties>
+    </Topic>-->
+    <!--<Topic Name="SalesReturn" >
+      <Class>
+        <Test Name="IsAbstract" Value="1" Expected="False" />
+      </Class>
+      <Constructors>
+        <Test Name="Default Constructor" Value="3" Method="TestSalesReturnDefaultConstructor" />
+        <Test Name="Constructor with 4 parameters" Value="5"  Method="TestSalesReturnConstructor4" />
+      </Constructors>
+      <Properties>
+        <Test Name="SalesReturnId" DataType="Int32" ReadWrite="Both" Value="3" />
+        <Test Name="ShipmentPartId" DataType="Int32" ReadWrite="Both" Value="3" />
+          <Test Name="Reason" DataType="String" ReadWrite="Both" Value="3" />
+          <Test Name="ReturnDate" DataType="DateTime" ReadWrite="Both" Value="3" />
+          <Test Name="ShipmentPart" DataType="ShipmentPart" ReadWrite="Read" Value="3" />
+      </Properties>
+    </Topic>-->
+    <Topic Name="Customer">
+      <Class>
+       
+      </Class>
+      <Constructors>
+        <Test Name="Default Constructor" Value="3" Method="TestCustomerDefaultConstructor" />
+        <Test Name="int customerId, string firstName, string lastName, string city, string state" DataType="Customer" Value="5"  /> <!--Method="TestCustomerConstructor5"-->
+      </Constructors>
+      <Properties>
+        <Test Name="CustomerId" DataType="Int32" ReadWrite="Both" Value="3" />
+        <Test Name="FirstName" DataType="String" ReadWrite="Both" Value="3" />
+        <Test Name="LastName" DataType="String" ReadWrite="Both" Value="3" />
+          <Test Name="City" DataType="String" ReadWrite="Both" Value="3" />
+          <Test Name="State" DataType="String" ReadWrite="Both" Value="3" />
+          <Test Name="SalesOrders" DataType="List`1" ReadWrite="Read" Generic="SalesOrder" Value="5" />
+        <Test Name="TotalSales" Value="5" ReadWrite="Read" Method="TestCustomerTotalSales" />
+        <Test Name="TotalCost" Value="5" ReadWrite="Read" Method="TestCustomerTotalCost" />
+        <Test Name="GrossProfit" Value="5" ReadWrite="Read" Method="TestCustomerGrossProfit" />
+      </Properties>
+        <Functional>
+           
+          <!--<Test Name="AddSalesOrder" Value="5" />-->
+        </Functional>
+    </Topic>
+      <Topic Name="SalesOrder">
+          <Class>
+              <!--<Test Name="IsAbstract" Value="1" Expected="False" />-->
+          </Class>
+          <Constructors>
+            <Test Name="Default Constructor" Value="3" Method="TestSalesOrderDefaultConstructor" />
+            <Test Name="int salesOrderNumber, int customerId, DateTime orderDate" 
+                  DataType="Customer" Value="5" Method="TestSalesOrderConstructor3" />
+              
+          </Constructors>
+          <Properties>
+            <Test Name="SalesOrderNumber" DataType="Int32" ReadWrite="Both" Value="3" />
+              <Test Name="CustomerId" DataType="Int32" ReadWrite="Both" Value="3" />
+            <Test Name="Customer" DataType="Customer" ReadWrite="Both" Value="5" Method="TestSalesOrderCustomer" />
+            <Test Name="OrderDate" DataType="DateTime" ReadWrite="Both" Value="3" />
+              <Test Name="SalesOrderParts" DataType="List`1" ReadWrite="Read" Generic="SalesOrderPart" Value="5"  />
+              <Test Name="Shipments" DataType="List`1" ReadWrite="Read" Generic="Shipment" Value="5"  />
+              <Test Name="OrderTotal" DataType="Decimal" ReadWrite="Read" Value="5"  Method="TestSalesOrderTotalSales" />
+              <Test Name="OrderCost" DataType="Decimal" ReadWrite="Read" Value="5" Method="TestSalesOrderTotalCost"  />
+              <Test Name="OrderProfit" DataType="Decimal" ReadWrite="Read" Value="5" Method="TestSalesOrderTotalProfit" />
+          </Properties>
+          <Functional>
+            <!--<Test Name="AddSalesOrderPart" Value="5" />-->
+          </Functional>
+      </Topic>
+      <Topic Name="SalesOrderPart">
+          <Class>
+              <!--<Test Name="IsAbstract" Value="1" Expected="False" />-->
+          </Class>
+          <Constructors>
+            <Test Name="Default Constructor" Value="3" Method="TestSalesOrderPartDefaultConstructor" />
+            <Test Name="int SalesOrderPartId, int SalesOrderNumber, int PartId, int Quantity, decimal UnitPrice, decimal UnitCost" 
+                  DataType="Customer" Value="5" Method="TestSalesOrderPartConstructor6" />
+              
+          </Constructors>
+          <Properties>
+              <Test Name="SalesOrderPartId" DataType="Int32" ReadWrite="Both" Value="3" />
+              <Test Name="SalesOrderNumber" DataType="Int32" ReadWrite="Read" Value="3" />
+            <Test Name="SalesOrder" DataType="SalesOrder" ReadWrite="Both" Value="5" Method="TestSalesOrderPartSalesOrder" />
+            <Test Name="PartId" DataType="Int32" ReadWrite="Both" Value="3" />
+              <Test Name="Quantity" DataType="Int32" ReadWrite="Both" Value="3" />
+              <Test Name="UnitCost" DataType="Decimal" ReadWrite="Both" Value="3" />
+              <Test Name="Part" DataType="Part" ReadWrite="Both" Value="5" /> <!--Method="TestSalesOrderPartPart"-->
+            <Test Name="ExtendedCost" DataType="Decimal" ReadWrite="Read" Value="5" Method="TestSalesOrderPartExtendedCost" />
+            <Test Name="ExtendedPrice" DataType="Decimal" ReadWrite="Read" Value="5" Method="TestSalesOrderPartExtendedPrice" />
+            <Test Name="GrossProfit" DataType="Decimal" ReadWrite="Read" Value="5" Method="TestSalesOrderPartGrossProfit" />
+          </Properties>
+      </Topic>
+  </Topics>
+</ProjectGrader>
